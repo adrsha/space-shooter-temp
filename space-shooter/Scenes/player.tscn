@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj6ok46pj6qbp"]
+
+[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_2xq8l"]
+[ext_resource type="Texture2D" uid="uid://c0ure1jyuwhnx" path="res://SpaceShipAsset.png" id="1_n3wt8"]
+[ext_resource type="PackedScene" uid="uid://dridbm68nxusl" path="res://Scenes/laser.tscn" id="3_tvcpe"]
+
+[node name="PlayerNode2D" type="Node2D"]
+position = Vector2(0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_2xq8l")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1.28746e-05, 0)
+scale = Vector2(2.715, 2.35)
+texture = ExtResource("1_n3wt8")
+region_enabled = true
+region_rect = Rect2(2, 0, 13, 20)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-10, -11, 0, -22, 11, -12, 12, -4, 15, 4, 18, 4, 18, 16, -18, 16, -18, 4, -15, 4, -12, -4)
+
+[node name="Laser" parent="." instance=ExtResource("3_tvcpe")]
+position = Vector2(0, -26)

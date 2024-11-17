@@ -1,0 +1,9 @@
+AnimationPlayer
+Node2D
+RichTextLabel
+CollisionShape2D
+CollisionPolygon2D
+Sprite2D
+Area2D
+CharacterBody2D
+StaticBody2D

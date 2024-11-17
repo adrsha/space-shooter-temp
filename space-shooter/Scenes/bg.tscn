@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5tief33a8fd7"]
+
+[ext_resource type="Script" path="res://Scenes/bg.gd" id="1_y6mgf"]
+[ext_resource type="PackedScene" uid="uid://cj6ok46pj6qbp" path="res://Scenes/player.tscn" id="2_xjy1p"]
+
+[sub_resource type="Gradient" id="Gradient_jjwkp"]
+colors = PackedColorArray(0, 0, 0.196078, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rfe7a"]
+gradient = SubResource("Gradient_jjwkp")
+use_hdr = true
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qgbhk"]
+distance = -167.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oxpqc"]
+normal = Vector2(1, 0)
+distance = -431.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vckww"]
+normal = Vector2(-0.99995, -0.0099995)
+distance = -720.034
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_y6mgf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(559, 381)
+scale = Vector2(5.12891, 816.25)
+texture = SubResource("GradientTexture1D_rfe7a")
+
+[node name="PlayerNode2D" parent="." instance=ExtResource("2_xjy1p")]
+position = Vector2(-1, -1)
+
+[node name="BorderCollisions" type="StaticBody2D" parent="."]
+position = Vector2(433, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderCollisions"]
+position = Vector2(8, 480)
+shape = SubResource("WorldBoundaryShape2D_qgbhk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BorderCollisions"]
+shape = SubResource("WorldBoundaryShape2D_oxpqc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BorderCollisions"]
+shape = SubResource("WorldBoundaryShape2D_vckww")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
