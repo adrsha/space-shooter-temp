@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://n0n46xag4hx5"]
+
+[ext_resource type="Script" path="res://Scenes/enemy_laser.gd" id="1_kmc0o"]
+[ext_resource type="Texture2D" uid="uid://bkaxcgyoltjrn" path="res://Laser Sprites/22.png" id="2_w8bgv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgxrm"]
+height = 68.0
+
+[node name="EnemyLaser" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_kmc0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -39)
+shape = SubResource("CapsuleShape2D_xgxrm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-4.8895e-09, -42)
+rotation = 1.5708
+scale = Vector2(0.380337, 0.464106)
+texture = ExtResource("2_w8bgv")
